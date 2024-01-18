@@ -1,0 +1,350 @@
+{
+  "match_url": "https://www.espncricinfo.com/series/indian-premier-league-2023-1345038/rajasthan-royals-vs-gujarat-titans-48th-match-1359522/full-scorecard",
+  "stadium": "Sawai Mansingh Stadium, Jaipur",
+  "Toss": "Rajasthan Royals, elected to bat first",
+  "Series": "Indian Premier League",
+  "Season": "2023",
+  "Player Of The Match": "Rashid Khan",
+  "Match days": "05 May 2023 | - night | (20-over match)",
+  "RR": "Player Replacement | Riyan Parag | Yashasvi Jaiswal",
+  "GT": "Player Replacement | Shubman Gill | Mohit Sharma",
+  "Umpires": [
+    "Saiyed Khalid",
+    "DRS",
+    "Virender Sharma",
+    "DRS"
+  ],
+  "TV Umpire": "Nitin Menon",
+  "Reserve Umpire": "Vaibhav Dhokre",
+  "Match Referee": "Javagal Srinath",
+  "Points": "Gujarat Titans 2, Rajasthan Royals 0",
+  "inning_one": {
+    "batting": {
+      "batting_scorecard": [
+        {
+          "batsman": "Yashasvi Jaiswal",
+          "player_tags": [],
+          "player_status": "run out (Sharma/Rashid Khan)",
+          "runs": "14",
+          "number_of_balls": "11",
+          "fours": "1",
+          "sixs": "1",
+          "strike_rate": "127.27"
+        },
+        {
+          "batsman": "Jos Buttler",
+          "player_tags": [],
+          "player_status": "c Sharma b Pandya",
+          "runs": "8",
+          "number_of_balls": "6",
+          "fours": "2",
+          "sixs": "0",
+          "strike_rate": "133.33"
+        },
+        {
+          "batsman": "Sanju Samson",
+          "player_tags": [
+            "(c)†"
+          ],
+          "player_status": "c Pandya b Little",
+          "runs": "30",
+          "number_of_balls": "20",
+          "fours": "3",
+          "sixs": "1",
+          "strike_rate": "150.00"
+        },
+        {
+          "batsman": "Devdutt Padikkal",
+          "player_tags": [],
+          "player_status": "b Noor Ahmad",
+          "runs": "12",
+          "number_of_balls": "12",
+          "fours": "1",
+          "sixs": "0",
+          "strike_rate": "100.00"
+        },
+        {
+          "batsman": "Ravichandran Ashwin",
+          "player_tags": [],
+          "player_status": "b Rashid Khan",
+          "runs": "2",
+          "number_of_balls": "6",
+          "fours": "0",
+          "sixs": "0",
+          "strike_rate": "33.33"
+        },
+        {
+          "batsman": "Riyan Parag",
+          "player_tags": [],
+          "player_status": "lbw b Rashid Khan",
+          "runs": "4",
+          "number_of_balls": "6",
+          "fours": "0",
+          "sixs": "0",
+          "strike_rate": "66.66"
+        },
+        {
+          "batsman": "Shimron Hetmyer",
+          "player_tags": [],
+          "player_status": "lbw b Rashid Khan",
+          "runs": "7",
+          "number_of_balls": "13",
+          "fours": "0",
+          "sixs": "0",
+          "strike_rate": "53.84"
+        },
+        {
+          "batsman": "Dhruv Jurel",
+          "player_tags": [],
+          "player_status": "lbw b Noor Ahmad",
+          "runs": "9",
+          "number_of_balls": "8",
+          "fours": "1",
+          "sixs": "0",
+          "strike_rate": "112.50"
+        },
+        {
+          "batsman": "Trent Boult",
+          "player_tags": [],
+          "player_status": "b Mohammed Shami",
+          "runs": "15",
+          "number_of_balls": "11",
+          "fours": "1",
+          "sixs": "1",
+          "strike_rate": "136.36"
+        },
+        {
+          "batsman": "Adam Zampa",
+          "player_tags": [],
+          "player_status": "run out (Manohar)",
+          "runs": "7",
+          "number_of_balls": "9",
+          "fours": "0",
+          "sixs": "0",
+          "strike_rate": "77.77"
+        },
+        {
+          "batsman": "Sandeep Sharma",
+          "player_tags": [],
+          "player_status": "not out",
+          "runs": "2",
+          "number_of_balls": "5",
+          "fours": "0",
+          "sixs": "0",
+          "strike_rate": "40.00"
+        }
+      ],
+      "fall_of_wicket": "1-11 (Jos Buttler, 1.4 ov), 2-47 (Yashasvi Jaiswal, 5.1 ov), 3-60 (Sanju Samson, 6.5 ov), 4-63 (Ravichandran Ashwin, 7.6 ov), 5-69 (Riyan Parag, 9.2 ov), 6-77 (Devdutt Padikkal, 11.3 ov), 7-87 (Dhruv Jurel, 13.1 ov), 8-96 (Shimron Hetmyer, 14.1 ov), 9-112 (Trent Boult, 16.3 ov), 10-118 (Adam Zampa, 17.5 ov) • DRS",
+      "did_not_bat": [
+        "Yuzvendra Chahal"
+      ],
+      "total_run": "118",
+      "total_wicket": 10,
+      "total_over": "17.5",
+      "run_rate": "6.61",
+      "total_extra_run": "8",
+      "extras": "(lb 1, w 7)"
+    },
+    "Bowlling": [
+      {
+        "bowler": "Mohammed Shami",
+        "number_of_over": "4",
+        "number_of_maiden_over": "0",
+        "runs_conceded": "27",
+        "number_of_wicktes": "1",
+        "econ": "6.75",
+        "wide_balls": "2",
+        "no_balls": "0"
+      },
+      {
+        "bowler": "Hardik Pandya",
+        "number_of_over": "2",
+        "number_of_maiden_over": "0",
+        "runs_conceded": "22",
+        "number_of_wicktes": "1",
+        "econ": "11.00",
+        "wide_balls": "0",
+        "no_balls": "0"
+      },
+      {
+        "bowler": "See all photos",
+        "number_of_over": "",
+        "number_of_maiden_over": "",
+        "runs_conceded": "",
+        "number_of_wicktes": "",
+        "econ": "",
+        "wide_balls": "",
+        "no_balls": ""
+      },
+      {
+        "bowler": "Rashid Khan",
+        "number_of_over": "4",
+        "number_of_maiden_over": "0",
+        "runs_conceded": "14",
+        "number_of_wicktes": "3",
+        "econ": "3.50",
+        "wide_balls": "2",
+        "no_balls": "0"
+      },
+      {
+        "bowler": "See all photos",
+        "number_of_over": "",
+        "number_of_maiden_over": "",
+        "runs_conceded": "",
+        "number_of_wicktes": "",
+        "econ": "",
+        "wide_balls": "",
+        "no_balls": ""
+      },
+      {
+        "bowler": "Josh Little",
+        "number_of_over": "4",
+        "number_of_maiden_over": "0",
+        "runs_conceded": "24",
+        "number_of_wicktes": "1",
+        "econ": "6.00",
+        "wide_balls": "0",
+        "no_balls": "0"
+      },
+      {
+        "bowler": "Noor Ahmad",
+        "number_of_over": "3",
+        "number_of_maiden_over": "0",
+        "runs_conceded": "25",
+        "number_of_wicktes": "2",
+        "econ": "8.33",
+        "wide_balls": "3",
+        "no_balls": "0"
+      },
+      {
+        "bowler": "See all photos",
+        "number_of_over": "",
+        "number_of_maiden_over": "",
+        "runs_conceded": "",
+        "number_of_wicktes": "",
+        "econ": "",
+        "wide_balls": "",
+        "no_balls": ""
+      },
+      {
+        "bowler": "Mohit Sharma",
+        "number_of_over": "0.5",
+        "number_of_maiden_over": "0",
+        "runs_conceded": "5",
+        "number_of_wicktes": "0",
+        "econ": "6.00",
+        "wide_balls": "0",
+        "no_balls": "0"
+      }
+    ]
+  },
+  "inning_two": {
+    "batting": {
+      "batting_scorecard": [
+        {
+          "batsman": "Wriddhiman Saha",
+          "player_tags": [
+            "†"
+          ],
+          "player_status": "not out",
+          "runs": "41",
+          "number_of_balls": "34",
+          "fours": "5",
+          "sixs": "0",
+          "strike_rate": "120.58"
+        },
+        {
+          "batsman": "Shubman Gill",
+          "player_tags": [],
+          "player_status": "st †Samson b Chahal",
+          "runs": "36",
+          "number_of_balls": "35",
+          "fours": "6",
+          "sixs": "0",
+          "strike_rate": "102.85"
+        },
+        {
+          "batsman": "Hardik Pandya",
+          "player_tags": [
+            "(c)"
+          ],
+          "player_status": "not out",
+          "runs": "39",
+          "number_of_balls": "15",
+          "fours": "3",
+          "sixs": "3",
+          "strike_rate": "260.00"
+        }
+      ],
+      "fall_of_wicket": "1-71 (Shubman Gill, 9.4 ov) • DRS",
+      "did_not_bat": [
+        "Rashid Khan",
+        "David Miller",
+        "Vijay Shankar",
+        "Rahul Tewatia",
+        "Abhinav Manohar",
+        "Noor Ahmad",
+        "Mohammed Shami",
+        "Josh Little"
+      ],
+      "total_run": "119",
+      "total_wicket": "1",
+      "total_over": "13.5",
+      "run_rate": "8.60",
+      "total_extra_run": "3",
+      "extras": "(lb 2, nb 1)"
+    },
+    "Bowlling": [
+      {
+        "bowler": "Trent Boult",
+        "number_of_over": "3",
+        "number_of_maiden_over": "0",
+        "runs_conceded": "28",
+        "number_of_wicktes": "0",
+        "econ": "9.33",
+        "wide_balls": "0",
+        "no_balls": "0"
+      },
+      {
+        "bowler": "Sandeep Sharma",
+        "number_of_over": "3",
+        "number_of_maiden_over": "0",
+        "runs_conceded": "19",
+        "number_of_wicktes": "0",
+        "econ": "6.33",
+        "wide_balls": "0",
+        "no_balls": "1"
+      },
+      {
+        "bowler": "Adam Zampa",
+        "number_of_over": "3",
+        "number_of_maiden_over": "0",
+        "runs_conceded": "40",
+        "number_of_wicktes": "0",
+        "econ": "13.33",
+        "wide_balls": "0",
+        "no_balls": "0"
+      },
+      {
+        "bowler": "Yuzvendra Chahal",
+        "number_of_over": "3.5",
+        "number_of_maiden_over": "0",
+        "runs_conceded": "22",
+        "number_of_wicktes": "1",
+        "econ": "5.73",
+        "wide_balls": "0",
+        "no_balls": "0"
+      },
+      {
+        "bowler": "Ravichandran Ashwin",
+        "number_of_over": "1",
+        "number_of_maiden_over": "0",
+        "runs_conceded": "8",
+        "number_of_wicktes": "0",
+        "econ": "8.00",
+        "wide_balls": "0",
+        "no_balls": "0"
+      }
+    ]
+  }
+}
