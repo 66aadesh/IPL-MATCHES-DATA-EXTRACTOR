@@ -22,16 +22,28 @@ def batsman_inning_extractor(trs_selector):
 
     # CONDITION FOR SUBTITUTE BATSMAN: -
     is_substitute = False
-
-    for tr in trs:    
+    flags_list = []
+    
+    fall_of_wicket = ""
+    did_not_bat = []
+    total_run = ""
+    total_wicket = ""
+    total_over = ""
+    run_rate = ""
+    total_extra_run = ""
+    extras = ""
+    
+    for tr in trs:  
         player_name_raw = [t.strip() for t  in  tr.xpath("./td[1]//text()").getall() if t.strip()]
         
         if not player_name_raw:
             continue
         player_name = player_name_raw[0]
         if player_name in ["Extras","TOTAL","Fall of wickets","Did not bat:"]:
-            if player_name=="Did not bat:":
-                is_substitute = True
+            # print(player_name)
+            flags_list.append(player_name)
+            # if player_name=="Did not bat:":
+            #     is_substitute = True
             continue
         player_tags = player_name_raw[1:]
         player_status = tr.xpath("./td[2]//text()").get("").strip()
@@ -52,62 +64,91 @@ def batsman_inning_extractor(trs_selector):
             "strike_rate" : strike_rate
         })
 
-    fall_of_wicket = "".join(trs[-1].xpath(".//text()").getall()[2:]).strip()
+    if "Fall of wickets" in flags_list:
+        flag_index = flags_list.index("Fall of wickets")-len(flags_list)
+        fall_of_wicket = "".join(trs[flag_index].xpath(".//text()").getall()[2:]).strip()
 
-    print(json.dumps(batting_scorecard, indent=2))
-    print(len(batting_scorecard))
-    print(is_substitute)
+    if "Did not bat:" in  flags_list:
+        flag_index = flags_list.index("Did not bat:")-len(flags_list)
+        did_not_bat = [t.strip() for t in trs[flag_index].xpath(".//text()").getall()[1:] if t.strip() and t.strip()!=',']
+        
 
-    if len(batting_scorecard)==2:
-        did_not_bat = [t.strip() for t in trs[-1].xpath(".//text()").getall()[1:] if t.strip() and t.strip()!=',']
-
-        total_raw = [t.strip() for t in trs[-2].xpath(".//text()").getall()[1:] if t.strip() and t.strip()!=',']
-        total_run = total_raw[2]
-        total_over = total_raw[0].replace("Ov","").strip()
-        run_rate = total_raw[1].split(":")[-1].strip(")").strip()
-        total_wicket = total_raw[3].strip("/").strip()
-
-        extras_raw = [t.strip() for t in trs[-3].xpath(".//text()").getall()[1:] if t.strip() and t.strip()!=',']
-        total_extra_run = extras_raw[1]
-        extras = extras_raw[0]
-    elif len(batting_scorecard)==11 and is_substitute:
-        did_not_bat = [t.strip() for t in trs[-2].xpath(".//text()").getall()[1:] if t.strip() and t.strip()!=',']
-
-        total_raw = [t.strip() for t in trs[-3].xpath(".//text()").getall()[1:] if t.strip() and t.strip()!=',']
-        total_run = total_raw[2]
-        total_over = total_raw[0].replace("Ov","").strip()
-        run_rate = total_raw[1].split(":")[-1].strip(")").strip()
-        total_wicket = 10
-
-        extras_raw = [t.strip() for t in trs[-4].xpath(".//text()").getall()[1:] if t.strip() and t.strip()!=',']
-        total_extra_run = extras_raw[1]
-        extras = extras_raw[0]
-    elif len(batting_scorecard)!=11 or is_substitute:
-        did_not_bat = [t.strip() for t in trs[-2].xpath(".//text()").getall()[1:] if t.strip() and t.strip()!=',']
-
-        total_raw = [t.strip() for t in trs[-3].xpath(".//text()").getall()[1:] if t.strip() and t.strip()!=',']
-        total_run = total_raw[2]
-        total_over = total_raw[0].replace("Ov","").strip()
-        run_rate = total_raw[1].split(":")[-1].strip(")").strip()
-        total_wicket = total_raw[3].strip("/").strip()
-
-        extras_raw = [t.strip() for t in trs[-4].xpath(".//text()").getall()[1:] if t.strip() and t.strip()!=',']
-        total_extra_run = extras_raw[1]
-        extras = extras_raw[0]
+    if "Extras" in  flags_list:
+        flag_index = flags_list.index("Extras")-len(flags_list)
+        extras_raw = [t.strip() for t in trs[flag_index].xpath(".//text()").getall()[1:] if t.strip() and t.strip()!=',']
+        try:
+            total_extra_run = extras_raw[1]
+            extras = extras_raw[0]
+        except IndexError:
+            pass
     
-    else:
-        did_not_bat = []
-
-        total_raw = [t.strip() for t in trs[-2].xpath(".//text()").getall()[1:] if t.strip() and t.strip()!=',']
-        print(total_raw)
+    if "TOTAL" in  flags_list:
+        flag_index = flags_list.index("TOTAL")-len(flags_list)
+        total_raw = [t.strip() for t in trs[flag_index].xpath(".//text()").getall()[1:] if t.strip() and t.strip()!=',']
         total_run = total_raw[2]
         total_over = total_raw[0].replace("Ov","").strip()
         run_rate = total_raw[1].split(":")[-1].strip(")").strip()
-        total_wicket = 10
+        try:
+            total_wicket = total_raw[3].strip("/").strip()
+        except IndexError:
+            total_wicket = 10
 
-        extras_raw = [t.strip() for t in trs[-3].xpath(".//text()").getall()[1:] if t.strip() and t.strip()!=',']
-        total_extra_run = extras_raw[1]
-        extras = extras_raw[0]
+    # fall_of_wicket = "".join(trs[-1].xpath(".//text()").getall()[2:]).strip()
+
+    # print(json.dumps(batting_scorecard, indent=2))
+    # print(len(batting_scorecard))
+    # print(is_substitute)
+
+    # if len(batting_scorecard)==2:
+    #     did_not_bat = [t.strip() for t in trs[-1].xpath(".//text()").getall()[1:] if t.strip() and t.strip()!=',']
+ 
+    #     total_raw = [t.strip() for t in trs[-2].xpath(".//text()").getall()[1:] if t.strip() and t.strip()!=',']
+    #     total_run = total_raw[2]
+    #     total_over = total_raw[0].replace("Ov","").strip()
+    #     run_rate = total_raw[1].split(":")[-1].strip(")").strip()
+    #     total_wicket = total_raw[3].strip("/").strip()
+
+    #     extras_raw = [t.strip() for t in trs[-3].xpath(".//text()").getall()[1:] if t.strip() and t.strip()!=',']
+    #     total_extra_run = extras_raw[1]
+    #     extras = extras_raw[0]
+    # elif len(batting_scorecard)==11 and is_substitute:
+    #     did_not_bat = [t.strip() for t in trs[-2].xpath(".//text()").getall()[1:] if t.strip() and t.strip()!=',']
+
+    #     total_raw = [t.strip() for t in trs[-3].xpath(".//text()").getall()[1:] if t.strip() and t.strip()!=',']
+    #     total_run = total_raw[2]
+    #     total_over = total_raw[0].replace("Ov","").strip()
+    #     run_rate = total_raw[1].split(":")[-1].strip(")").strip()
+    #     total_wicket = 10
+
+    #     extras_raw = [t.strip() for t in trs[-4].xpath(".//text()").getall()[1:] if t.strip() and t.strip()!=',']
+    #     total_extra_run = extras_raw[1]
+    #     extras = extras_raw[0]
+    # elif len(batting_scorecard)!=11 or is_substitute:
+    #     did_not_bat = [t.strip() for t in trs[-2].xpath(".//text()").getall()[1:] if t.strip() and t.strip()!=',']
+
+    #     total_raw = [t.strip() for t in trs[-3].xpath(".//text()").getall()[1:] if t.strip() and t.strip()!=',']
+    #     total_run = total_raw[2]
+    #     total_over = total_raw[0].replace("Ov","").strip()
+    #     run_rate = total_raw[1].split(":")[-1].strip(")").strip()
+    #     total_wicket = total_raw[3].strip("/").strip()
+
+    #     extras_raw = [t.strip() for t in trs[-4].xpath(".//text()").getall()[1:] if t.strip() and t.strip()!=',']
+    #     total_extra_run = extras_raw[1]
+    #     extras = extras_raw[0]
+    
+    # else:
+    #     did_not_bat = []
+
+    #     total_raw = [t.strip() for t in trs[-2].xpath(".//text()").getall()[1:] if t.strip() and t.strip()!=',']
+    #     # print(total_raw)
+    #     total_run = total_raw[2]
+    #     total_over = total_raw[0].replace("Ov","").strip()
+    #     run_rate = total_raw[1].split(":")[-1].strip(")").strip()
+    #     total_wicket = 10
+
+    #     extras_raw = [t.strip() for t in trs[-3].xpath(".//text()").getall()[1:] if t.strip() and t.strip()!=',']
+    #     total_extra_run = extras_raw[1]
+    #     extras = extras_raw[0]
 
     batting_inning_one ={
         "batting_scorecard" : batting_scorecard,
@@ -185,9 +226,9 @@ def match_extractor(match_url):
         row_dict["Umpires"] =[a.strip() for a in row_dict["Umpires"].split("|") if a.strip()]
 
     is_abandoned = match_resp.xpath("//span[contains(text(), 'Match abandoned without a ball bowled')]").getall()
-    print(is_abandoned)
+    # print(is_abandoned)
     is_no_result = match_resp.xpath("//span[contains(text(), 'No result')]").getall()
-    print(is_no_result)
+    # print(is_no_result)
 
     row_dict["inning_one"] = {}
     row_dict["inning_two"] = {}
@@ -208,15 +249,15 @@ def match_extractor(match_url):
             row_dict["inning_two"]["Bowlling"] = bowl_in_two
         else:
             bat_in_one = batsman_inning_extractor( match_resp.xpath("(//th[contains(text(),'BATTING')])[1]/parent::tr/parent::thead/following-sibling::tbody/tr"))
-            bat_in_two = batsman_inning_extractor( match_resp.xpath("(//th[contains(text(),'BATTING')])[2]/parent::tr/parent::thead/following-sibling::tbody/tr"))
+            # bat_in_two = batsman_inning_extractor( match_resp.xpath("(//th[contains(text(),'BATTING')])[2]/parent::tr/parent::thead/following-sibling::tbody/tr"))
 
             bowl_in_one = bowling_inning_extractor(match_resp.xpath("(//th[contains(text(),'BOWLING')])[1]/parent::tr/parent::thead/following-sibling::tbody/tr"))
-            bowl_in_two = bowling_inning_extractor(match_resp.xpath("(//th[contains(text(),'BOWLING')])[2]/parent::tr/parent::thead/following-sibling::tbody/tr"))
+            # bowl_in_two = bowling_inning_extractor(match_resp.xpath("(//th[contains(text(),'BOWLING')])[2]/parent::tr/parent::thead/following-sibling::tbody/tr"))
             row_dict["inning_one"]["batting"] = bat_in_one
             row_dict["inning_one"]["Bowlling"] = bowl_in_one
             
 
     return row_dict
 
-data = match_extractor("https://www.espncricinfo.com/series/pepsi-indian-premier-league-2015-791129/royal-challengers-bangalore-vs-rajasthan-royals-29th-match-829763/full-scorecard")
+data = match_extractor("https://www.espncricinfo.com/series/indian-premier-league-2012-520932/kings-xi-punjab-vs-pune-warriors-14th-match-548319/full-scorecard")
 json.dump(data,open("sample.json","w"),indent=2,ensure_ascii=False)
