@@ -210,6 +210,27 @@ def match_extractor(match_url):
     
     match_r = requests.get(match_url)
     match_resp = HtmlResponse("example.com",body=match_r.text,encoding='utf-8')
+    
+    teams = match_resp.xpath("//span[@class='ds-text-tight-l ds-font-bold ds-text-typo hover:ds-text-typo-primary ds-block ds-truncate']/text()").getall()
+    team_a = teams[0]
+    team_b = teams[1]
+    # print(team_a,team_b)
+    if not team_a or not team_b:
+        print("[ERROR] team name issue : ",match_url)
+    row_dict["team_a"] = team_a
+    row_dict["team_b"] = team_b
+    
+    loser = match_resp.xpath("//div[@class='ci-team-score ds-flex ds-justify-between ds-items-center ds-text-typo ds-opacity-50 ds-mb-2']/div/@title").get("")
+    if not loser:
+        loser = "NA"
+        winner = "NA"
+    else:
+        teams.remove(loser)
+        winner = teams[0]
+    row_dict["winner"] = winner
+    row_dict["loser"] = loser
+    
+    
     for tr in match_resp.xpath("//span[contains(text(),'MATCH DETAILS')]/parent::div/parent::div/following-sibling::div/table/tbody/tr"):
         # print(tr.xpath("./td//span/text()").getall())
         tds =[t.strip() for t in tr.xpath("./td//span/text()").getall() if t.strip()]
@@ -259,5 +280,6 @@ def match_extractor(match_url):
 
     return row_dict
 
+# data = match_extractor("https://www.espncricinfo.com/series/indian-premier-league-2009-374163/mumbai-indians-vs-rajasthan-royals-7th-match-392187/full-scorecard")
 data = match_extractor("https://www.espncricinfo.com/series/indian-premier-league-2012-520932/kings-xi-punjab-vs-pune-warriors-14th-match-548319/full-scorecard")
 json.dump(data,open("sample.json","w"),indent=2,ensure_ascii=False)
