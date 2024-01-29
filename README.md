@@ -1,7 +1,9 @@
 # IPL Match Data Extractor
 
 ## Project Overview
-This project is designed to extract Indian Premier League (IPL) match data from the source Cricklbussespn. The data extraction is facilitated through Python, utilizing various libraries such as Scrapy, BeautifulSoup, and Pandas.
+This project is designed to extract Indian Premier League (IPL) match data from the source ESPN Cricinfo ("https://www.espncricinfo.com/"). The data extraction is facilitated through Python, utilizing various libraries such as Scrapy, BeautifulSoup, and Pandas.
+The main aim is to create a json file containing raw data about all the matches that have happened in the Cricket tournament IPL from its inception in 2008 to 2023.
+This data can further be utilised for ML modelling and other such purposes.
 
 ## Files in the Repository
 
