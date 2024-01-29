@@ -7,6 +7,9 @@ This data can further be utilised for ML modelling and other such purposes.
 
 ## Files in the Repository
 
+### File 1: - 'BS4 Ideation.ipynb'
+This file is the basic ideation playground upon which the rest of the files are built. It is hihgly suggested to go through the file, copy it, try playing around and then maybe look at the other files.
+
 ### File 1: match_extractor
 This file contains three main methods for extracting specific data from IPL matches.
 
@@ -24,8 +27,9 @@ This file acts as a central coordinator, utilizing the main methods from `match_
 
 ## How to Use
 1. Clone the repository to your local machine.
-2. Run the desired method from `match_extractor` to extract specific data for an IPL match.
-3. Alternatively, use `all_match_data_extractor` by providing a list of match URLs to extract data for multiple matches into a consolidated JSON file.
+2. Go through 'BS4 Ideation.ipynb' to understand the basic idea of extracting data of IPL matches.
+3. Run the desired method from `match_extractor` to extract specific data for an IPL match.
+4. Alternatively, use `all_match_data_extractor` by providing a list of match URLs to extract data for multiple matches into a consolidated JSON file.
 
 ## Dependencies
 - Python
@@ -34,6 +38,6 @@ This file acts as a central coordinator, utilizing the main methods from `match_
 - Pandas
 
 ## Source
-The IPL match data is extracted from Cricklbussespn.
+The IPL match data is extracted from ESPN Cricinfo ("https://www.espncricinfo.com/").
 
 Feel free to contribute or raise issues if you encounter any problems. Happy coding!
