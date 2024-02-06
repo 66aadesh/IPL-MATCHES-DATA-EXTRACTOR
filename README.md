@@ -22,20 +22,25 @@ Similar to the batting data extractor, this method focuses on extracting bowling
 #### Method 3: Match All Data Extractor
 This method takes an IPL match URL as input and extracts comprehensive data including batting, bowling, and other match details. The output is stored in a JSON file.
 
-### File 2: all_match_data_extractor
+### File 2: New_all_match_data_extractor
 This file acts as a central coordinator, utilizing the main methods from `match_extractor` to extract data for multiple matches. By providing a list of match URLs, this file extracts all relevant data for each match and compiles it into a single JSON file.
+
+### File 3: Push Data to MongoDB
+This file is optional and aims to push data to a remote MongoDB server. It uses Pymongo to connect to the said server and push json data extracted by New_all_match_data_extractor.
 
 ## How to Use
 1. Clone the repository to your local machine.
 2. Go through 'BS4 Ideation.ipynb' to understand the basic idea of extracting data of IPL matches.
 3. Run the desired method from `match_extractor` to extract specific data for an IPL match.
 4. Alternatively, use `all_match_data_extractor` by providing a list of match URLs to extract data for multiple matches into a consolidated JSON file.
+5. Push Data to MongoDB is optional.
 
 ## Dependencies
 - Python
 - Scrapy
 - BeautifulSoup
 - Pandas
+- Pymongo (Optional)
 
 ## Source
 The IPL match data is extracted from ESPN Cricinfo ("https://www.espncricinfo.com/").
